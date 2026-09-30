@@ -1,0 +1,19 @@
+{
+  "name": "smart-ac-system",
+  "version": "1.0.0",
+  "description": "Simulated IoT smart air-conditioning system (SIT314 distinction project)",
+  "scripts": {
+    "sim": "node sensor-sim.js",
+    "ingestion": "node ingestion/index.js",
+    "decision": "node decision/index.js",
+    "control": "node control/index.js",
+    "dashboard": "node dashboard/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "mqtt": "^5.10.0"
+  }
+}

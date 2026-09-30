@@ -1,0 +1,31 @@
+services:
+  nodered:
+    image: nodered/node-red:latest
+    ports: ["1880:1880"]
+    volumes: ["./nodered-data:/data"]
+    restart: unless-stopped
+
+  ingestion:
+    build: .
+    command: node ingestion/index.js
+    env_file: .env
+    restart: unless-stopped
+
+  decision:
+    build: .
+    command: node decision/index.js
+    env_file: .env
+    restart: unless-stopped
+
+  control:
+    build: .
+    command: node control/index.js
+    env_file: .env
+    restart: unless-stopped
+
+  dashboard:
+    build: .
+    command: node dashboard/index.js
+    env_file: .env
+    ports: ["3000:3000"]
+    restart: unless-stopped
